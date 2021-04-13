@@ -9,3 +9,10 @@
 
 
 
+## Sudo Cronjob 
+
+```
+@reboot sudo chmod 777 /dev/tty*
+@reboot sudo chmod 777 /dev/vid*
+0 09 * * * sudo reboot
+```
