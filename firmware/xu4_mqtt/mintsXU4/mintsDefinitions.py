@@ -67,7 +67,7 @@ sensorNodesFile          = 'sensorNodes.yml'
 
 mqttBroker               = "mqtt.circ.utdallas.edu"
 mqttPort                 = 8883  # Secure port
-senderNodes              = yaml.load(open(sensorNodesFile))
+#senderNodes              = yaml.load(open(sensorNodesFile))
 print()
 print("----MINTS Definitions-----")
 print("Mac Address                : {0}".format(macAddress))
