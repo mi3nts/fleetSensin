@@ -10,6 +10,8 @@ OPCN3NanoMints opc = OPCN3NanoMints(CS);
 bool  OPCN3Online;
 bool opcStatus = false;
 
+bool SCD30Online;
+SCD30 scd;
 
 bool MGS001Online;
 
@@ -31,6 +33,9 @@ void setup() {
   //
   delay(initPeriod);
   MGS001Online =  initializeMGS001Mints();
+
+  delay(initPeriod);
+  SCD30Online = initializeSCD30Mints();
 
   delay(initPeriod);
   OPCN3Online =  initializeOPCN3Mints();
@@ -57,11 +62,17 @@ void loop() {
     }
 
     delay(sensingPeriod);
+    if(SCD30Online)
+    {
+      readSCD30Mints();
+    }
+
+    delay(sensingPeriod); 
     if(OPCN3Online)
     {
       opcStatus =  readOPCN3Mints(opcStatus);
     }
 
-    delayMints(millis() - startTime,10000);
+    delayMints(millis() - startTime,5000);
 
 }
